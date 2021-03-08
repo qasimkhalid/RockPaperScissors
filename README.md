@@ -6,9 +6,9 @@
 3. Add the name of your database here (add username and password, if necessary). `spring.datasource.url=jdbc:postgresql://localhost:5432/{yourDatabaseName}`
 ### Game Play:
 
-1. Player sends API a move to play using `POST` request to the [http://localhost:8080/rps/play/](http://localhost:8080/rps/play/ "http://localhost:8080/rps/play/") endpoint in the following format. 
+1. Player sends API a move to play using `POST` request to the [http://localhost:8080/rps/play/](http://localhost:8080/rps/play/ "http://localhost:8080/rps/play/") endpoint in the following format with one of the possible **legal moves (i.e., rock, paper, scissors)**.
 
-#####  Player Request Format:
+#####  Sample Player Request Format:
 ```json
 {
   "name": "Ponky",
@@ -18,7 +18,7 @@
 
 2. The game engine chooses a move in reaction to player's choice and the player receives a game result in a following format. 
 
-##### Game Result Format:
+##### Sample Game Result Format:
 ```json
 {
   "moves": [

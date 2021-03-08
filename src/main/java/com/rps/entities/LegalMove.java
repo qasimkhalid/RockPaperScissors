@@ -1,9 +1,9 @@
 package com.rps.entities;
 
 /*
-Rock = 0,
-Paper = 1,
-Scissors = 2
+rock = 0,
+paper = 1,
+scissors = 2
  */
 
 public enum LegalMove {

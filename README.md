@@ -31,7 +31,7 @@
     },
     {
       "name": "Bot",
-      "move": "scissor"
+      "move": "scissors"
     }
   ],
   "result": "Ponky wins"

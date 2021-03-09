@@ -42,15 +42,25 @@ public class GameLogic implements IGameLogic {
         }
         else {
 
+            // Rock > Lizard
             // Rock > Scissors
             // Paper > Rock
+            // Paper > Spock
             // Scissors > Paper
+            // Scissors > Lizard
+            // Spock >  Rock
+            // Spock > Scissors
+            // Lizard > Paper
+            // Lizard > Spock
 
-            boolean rockWins = player.getMove() == LegalMove.rock && bot.getMove() == LegalMove.scissors;
-            boolean paperWins = player.getMove() == LegalMove.paper && bot.getMove() == LegalMove.rock;
-            boolean scissorsWins = player.getMove() == LegalMove.scissors && bot.getMove() == LegalMove.paper;
+            boolean rockWins = player.getMove() == LegalMove.rock && ((bot.getMove() == LegalMove.scissors) || (bot.getMove() == LegalMove.lizard));
+            boolean paperWins = player.getMove() == LegalMove.paper && ((bot.getMove() == LegalMove.rock) || (bot.getMove() == LegalMove.spock));
+            boolean scissorsWins = player.getMove() == LegalMove.scissors && ((bot.getMove() == LegalMove.paper) || (bot.getMove() == LegalMove.lizard));
+            boolean spockWins = player.getMove() == LegalMove.spock && ((bot.getMove() == LegalMove.rock) || (bot.getMove() == LegalMove.scissors));
+            boolean lizardWins = player.getMove() == LegalMove.lizard && ((bot.getMove() == LegalMove.paper) || (bot.getMove() == LegalMove.spock));
 
-            if (rockWins || paperWins || scissorsWins) {
+
+            if (rockWins || paperWins || scissorsWins || spockWins || lizardWins) {
                 gameResult.setResult(player.getName() + " Won");
             } else {
                 gameResult.setResult("Bot Won");

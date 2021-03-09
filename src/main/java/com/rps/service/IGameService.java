@@ -8,4 +8,5 @@ public interface IGameService {
     GameResult newGame(IGameLogic gameLogic); // injection of game logic here
 
     List<GameResult> getAllResults();
+
 }

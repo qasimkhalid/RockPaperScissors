@@ -1,4 +1,6 @@
-# API to play Rock - Paper - Scissors
+# API to play Rock - Paper - Scissors - Lizard - Spock
+
+![alt text](https://upload.wikimedia.org/wikipedia/en/c/cc/Rock_paper_scissors_lizard_spock.png)
 ## Instructions
 ### Configuration:
 1. Clone the repository.
@@ -9,7 +11,7 @@
 
 ### Game Play:
 
-1. Player sends API a move to play using `POST` request to the [http://localhost:8080/rps/play/](http://localhost:8080/rps/play/ "http://localhost:8080/rps/play/") endpoint in the following format with one of the possible **legal moves (i.e., rock, paper, scissors)**.
+1. Player sends API a move to play using `POST` request to the [http://localhost:8080/rps/play/](http://localhost:8080/rps/play/ "http://localhost:8080/rps/play/") endpoint in the following format with one of the possible **legal moves (i.e., rock, paper, scissors, lizard, spock)**.
 
 #####  Sample Player Request Format:
 ```json
@@ -31,7 +33,7 @@
     },
     {
       "name": "Bot",
-      "move": "scissors"
+      "move": "lizard"
     }
   ],
   "result": "Ponky wins"

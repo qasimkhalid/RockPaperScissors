@@ -5,6 +5,7 @@ public class RandomMoveGenerator {
 
     public LegalMove getRandomMove() {
         Random random = new Random();
-        return LegalMove.values()[random.nextInt(LegalMove.values().length)];
+        return (LegalMove.values()
+                [random.nextInt(LegalMove.values().length)]);
     }
 }

@@ -12,7 +12,7 @@
 	<artifactId>hivencyrps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hivencyrps</name>
-	<description>Hivency Test : Rock Paper Scissors</description>
+	<description>Rock Paper Scissors Lizard Spock</description>
 	<properties>
 		<java.version>15</java.version>
 	</properties>
@@ -48,9 +48,14 @@
             <scope>test</scope>
         </dependency>
 
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency>
 
 
-    </dependencies>
+	</dependencies>
 
 	<build>
 		<plugins>

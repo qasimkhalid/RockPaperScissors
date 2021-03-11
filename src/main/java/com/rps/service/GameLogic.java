@@ -6,17 +6,12 @@ import com.rps.entities.LegalMove;
 import com.rps.entities.RandomMoveGenerator;
 import com.rps.entities.datamodel.GameResult;
 import com.rps.entities.datamodel.Move;
-//import org.json.simple.JSONArray;
-//import org.json.simple.parser.JSONParser;
-//import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.text.ParseException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

@@ -1,4 +1,5 @@
 package com.rps.service;
+
 import com.rps.entities.datamodel.GameResult;
 import com.rps.repository.GameResultRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,12 @@ public class GameServiceImpl implements IGameService {
     private GameResultRepo gameResultRepo;
 
     @Override
-    public List<GameResult> getAllResults ( ) {
+    public List<GameResult> getAllResults() {
         return gameResultRepo.findAll();
     }
 
     @Override
-    public GameResult newGame (IGameLogic gameLogic){
+    public GameResult newGame( IGameLogic gameLogic ) {
 
         GameResult gameResult = gameLogic.CalculateResult();
         gameResultRepo.save(gameResult);

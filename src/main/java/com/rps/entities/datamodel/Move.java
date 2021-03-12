@@ -1,7 +1,9 @@
 package com.rps.entities.datamodel;
-import com.rps.entities.LegalMove;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Move {
@@ -11,13 +13,13 @@ public class Move {
     private int id;
 
     private String name;
-    private LegalMove move;
+    private String move;
 
     public void setName( String name ) {
         this.name = name;
     }
 
-    public void setMove( LegalMove move ) {
+    public void setMove( String move ) {
         this.move = move;
     }
 
@@ -25,14 +27,14 @@ public class Move {
         return name;
     }
 
-    public LegalMove getMove() {
+    public String getMove() {
         return move;
     }
 
     public Move() {
     }
 
-    public Move( String name, LegalMove move ) {
+    public Move( String name, String move ) {
         this.name = name;
         this.move = move;
     }

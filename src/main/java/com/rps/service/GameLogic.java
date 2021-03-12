@@ -1,16 +1,10 @@
 package com.rps.service;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.rps.entities.LegalMove;
 import com.rps.entities.RandomMoveGenerator;
 import com.rps.entities.datamodel.GameResult;
 import com.rps.entities.datamodel.Move;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Type;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +13,18 @@ public class GameLogic implements IGameLogic {
 
     private final Move playerMove;
 
-    public GameLogic( Move player ) {
+    private Map<String, List<String>> map = null;
+
+    public GameLogic( Move player, Map<String, List<String>> inputMap ) {
         this.playerMove = player;
+        this.map = inputMap;
     }
 
     @Override
     public Move getBotMove() {
         RandomMoveGenerator randomMoveGenerator = new RandomMoveGenerator();
-        LegalMove botMove = randomMoveGenerator.getRandomMove();
+        List<String> legalMove = new ArrayList<String>(map.keySet());
+        String botMove = randomMoveGenerator.getRandomMove(legalMove);
 
         return new Move("bot", botMove);
     }
@@ -45,24 +43,12 @@ public class GameLogic implements IGameLogic {
 
         gameResult.setMoves(Arrays.asList(player, bot));
 
-        Map<String, List> winningMap = null;
-
-        try (FileReader reader = new FileReader("data/winMap.json"))
-        {
-            Type type = new TypeToken<Map>(){}.getType();
-            winningMap = new Gson().fromJson(reader, type);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (player.getMove() == bot.getMove()) {
+        if (player.getMove().equals(bot.getMove())) {
             gameResult.setResult("Game Draw");
         }
         else {
-            List moveFound = winningMap.get(String.valueOf(player.getMove()));
-            if (moveFound.contains(String.valueOf(bot.getMove()))) {
+            List dominatesOver = map.get(player.getMove());
+            if (dominatesOver.contains(bot.getMove())) {
                 gameResult.setResult(player.getName() + " Won");
             }
             else{

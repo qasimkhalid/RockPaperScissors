@@ -1,4 +1,5 @@
 package com.rps.entities.datamodel;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,11 +11,11 @@ public class GameResult {
     private int id;
     @OneToMany
             (
-            targetEntity = Move.class,
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(name="gameId_fk",
-    referencedColumnName = "id")
+                    targetEntity = Move.class,
+                    cascade = CascadeType.ALL
+            )
+    @JoinColumn(name = "gameId_fk",
+            referencedColumnName = "id")
     private List<Move> moves;
     private String result;
 
@@ -31,7 +32,7 @@ public class GameResult {
         return moves;
     }
 
-    public void setMoves(List<Move> playerDetails) {
+    public void setMoves( List<Move> playerDetails ) {
         this.moves = playerDetails;
     }
 
@@ -39,7 +40,7 @@ public class GameResult {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult( String result ) {
         this.result = result;
     }
 }

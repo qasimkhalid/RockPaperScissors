@@ -1,8 +1,8 @@
 package com.hivencyrps;
 
-import com.rps.entities.LegalMove;
 import com.rps.entities.datamodel.GameResult;
 import com.rps.entities.datamodel.Move;
+import com.rps.helper.IOHelper;
 import com.rps.service.GameLogic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,10 +15,10 @@ public class GameLogicTest {
     @DisplayName("Player plays rock and bot plays paper")
     public void PaperWinsAgainstRockTest() {
 
-        GameLogic gameLogicTest = new GameLogic(new Move("Qasim", LegalMove.rock)) {
+        GameLogic gameLogicTest = new GameLogic(new Move("Qasim", "rock"), IOHelper.LoadMapFromJson()) {
             @Override
             public Move getBotMove() {
-                return new Move("Bot", LegalMove.paper);
+                return new Move("Bot", "paper");
             }
         };
 
@@ -30,10 +30,10 @@ public class GameLogicTest {
     @DisplayName("MatchShouldDraw")
     public void MatchShouldDraw() {
 
-        GameLogic gameLogicTest = new GameLogic(new Move("Qasim", LegalMove.rock)) {
+        GameLogic gameLogicTest = new GameLogic(new Move("Qasim", "rock"), IOHelper.LoadMapFromJson()) {
             @Override
             public Move getBotMove() {
-                return new Move("Bot", LegalMove.rock);
+                return new Move("Bot", "rock");
             }
         };
 
